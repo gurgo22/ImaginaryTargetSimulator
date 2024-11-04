@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.collections.ObservableList?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="its.LeaderboardController" spacing="10" alignment="CENTER" stylesheets="@leaderboard.css">
+    <TableView fx:id="leaderboardTable" prefWidth="400">
+        <columns>
+            <TableColumn fx:id="usernameColumn" text="Username" prefWidth="200"/>
+            <TableColumn fx:id="highscoreColumn" text="High Score" prefWidth="200"/>
+        </columns>
+    </TableView>
+    <Button text="Exit" onAction="#exit"/>
+</VBox>

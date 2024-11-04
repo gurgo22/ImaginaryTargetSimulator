@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="mainScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="its.LoginController">
+    <children>
+        <VBox fx:id="loginVBox" alignment="CENTER" maxWidth="Infinity" spacing="20" styleClass="login-vbox" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Login" />
+
+            <GridPane alignment="CENTER" hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" />
+                    <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" />
+                </columnConstraints>
+        
+                <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="usernameField" promptText="Enter username" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <PasswordField fx:id="passwordField" promptText="Enter password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
+            </GridPane>
+
+            <Label fx:id="loginMessage" textFill="RED" />
+
+            <HBox alignment="CENTER" spacing="10">
+                <Button onAction="#Login" text="LOGIN" />
+                <Button fx:id="registerButton" onAction="#Register" text="REGISTER" />
+                <Button fx:id="returnButton" onAction="#ReturnToMainScreen" text="CANCEL" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

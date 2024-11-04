@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" stylesheets="@base.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="its.TestController">
+   <children>
+       
+       <AnchorPane fx:id="targetPane" layoutX="505.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" styleClass="target-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+            <children>
+             <Circle fx:id="oneCircleExtra" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="494.5" styleClass="circle-extra" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
+             <Circle fx:id="oneCircle" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="480.0" stroke="BLACK" strokeType="INSIDE" styleClass="circle-main" userData="1" />
+             <Circle fx:id="twoCircleExtra" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="463" styleClass="circle-extra" />
+             <Circle fx:id="twoCircle" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="448.55" stroke="BLACK" strokeType="INSIDE" styleClass="circle-main" />
+             <Circle fx:id="threeCircleExtra" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="411.6" styleClass="circle-extra" />
+             <Circle fx:id="threeCircle" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="397.1" stroke="BLACK" strokeType="INSIDE" styleClass="circle-main" />
+             <Circle fx:id="fourCircleExtra" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="360.15" styleClass="circle-extra" />
+             <Circle fx:id="fourCircle" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="345.66" stroke="BLACK" strokeType="INSIDE" styleClass="circle-main" userData="1" />
+             <Circle fx:id="fiveCircleExtra" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="309.2" styleClass="circle-extra" />
+             <Circle fx:id="fiveCircle" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="294.7" stroke="BLACK" strokeType="INSIDE" styleClass="circle-main" />
+             <Circle fx:id="sixCircleExtra" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="257.25" styleClass="circle-extra" />
+             <Circle fx:id="sixCircle" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="242.76" stroke="BLACK" strokeType="INSIDE" styleClass="circle-main" />
+             <Circle fx:id="sevenCircleExtra" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="205.82" styleClass="circle-extra" />
+             <Circle fx:id="sevenCircle" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="191.32" stroke="BLACK" strokeType="INSIDE" styleClass="circle-main" />
+             <Circle fx:id="eightCircleExtra" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="154.37" styleClass="circle-extra" />
+             <Circle fx:id="eightCircle" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="139.87" stroke="BLACK" strokeType="INSIDE" styleClass="circle-main" />
+             <Circle fx:id="nineCircleExtra" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="102.92" styleClass="circle-extra" />
+             <Circle fx:id="nineCircle" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="88.42" stroke="BLACK" strokeType="INSIDE" styleClass="circle-main" />
+             <Circle fx:id="tenCircleExtra" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="51.5" styleClass="circle-extra" />
+             <Circle fx:id="tenCircle" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="37" stroke="BLACK" strokeType="INSIDE" styleClass="circle-main" />
+             <Circle fx:id="innerTenCircleExtra" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="29" styleClass="circle-extra" />
+             <Circle fx:id="innerTenCircle" layoutX="500.0" layoutY="500.0" onMouseClicked="#RingClicked" radius="14.5" stroke="BLACK" strokeType="INSIDE" styleClass="circle-main" />
+
+         </children>
+    </AnchorPane>
+    <ComboBox fx:id="seriesComboBox" layoutX="14.0" layoutY="674.0" prefHeight="53.0" prefWidth="133.0" promptText="Series" styleClass="styled-combobox" />
+      <Label layoutX="294.0" layoutY="960.0" />
+      <ColorPicker fx:id="colorSelector" layoutX="14.0" layoutY="14.0" onAction="#changeColor" prefHeight="53.0" prefWidth="160.0" promptText="Select Theme" />
+      <AnchorPane fx:id="scorePane" layoutX="245.0" layoutY="746.0" prefHeight="232.0" prefWidth="242.0">
+         <children>
+          <TextField fx:id="currentSeriesText" alignment="CENTER" editable="false" layoutX="20.0" layoutY="37.0" prefHeight="68.0" prefWidth="206.0" promptText="0" styleClass="transparent-textfield" text="0">
+               <font>
+                  <Font name="Arial Bold" size="60.0" />
+               </font>
+          </TextField>
+            <TextField fx:id="totalScore" alignment="CENTER" editable="false" layoutX="43.0" layoutY="155.0" prefHeight="58.0" prefWidth="160.0" promptText="0" styleClass="transparent-textfield" text="0">
+               <font>
+                  <Font name="Arial Bold" size="40.0" />
+               </font>
+            </TextField>
+            <Label fx:id="totalScoreLabel" layoutX="68.0" layoutY="219.0" styleClass="transparent-textfield" text="Total Score">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="buttonPane" layoutX="24.0" layoutY="474.0" prefHeight="152.0" prefWidth="442.0">
+         <children>
+              <Button fx:id="printButton" layoutX="28.0" layoutY="31.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#printTarget" prefHeight="100.0" prefWidth="100.0" styleClass="icon-button">
+                  <graphic>
+                      <ImageView fx:id="printImageView" />
+                  </graphic>
+              </Button>
+              <Button fx:id="zoomButton" layoutX="128.0" layoutY="31.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#zoomTarget" prefHeight="100.0" prefWidth="100.0" styleClass="icon-button">
+                  <graphic>
+                      <ImageView fx:id="zoomImageView" />
+                  </graphic>
+              </Button>
+              <Button fx:id="clearButton" layoutX="234.0" layoutY="31.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clearTarget" prefHeight="100.0" prefWidth="100.0" styleClass="icon-button">
+                  <graphic>
+                      <ImageView fx:id="clearImageView" />
+                  </graphic>
+              </Button>
+              <Button fx:id="resetButton" layoutX="334.0" layoutY="34.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#resetTarget" prefHeight="100.0" prefWidth="100.0" styleClass="icon-button">
+                  <graphic>
+                      <ImageView fx:id="resetImageView" />
+                  </graphic>
+              </Button>
+         </children>
+      </AnchorPane>
+   
+
+   </children>
+</AnchorPane>

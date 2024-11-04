@@ -1,0 +1,47 @@
+.root {
+    -fx-font-family: 'Arial';
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 20;
+}
+
+.label {
+    -fx-font-size: 14px;
+}
+
+.text-field, .password-field {
+    -fx-pref-width: 200px;
+}
+
+.button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-padding: 10;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: #45a049;
+}
+
+#loginMessage {
+    -fx-font-size: 12px;
+}
+
+VBox {
+    -fx-padding: 20;
+    -fx-spacing: 20;
+}
+
+GridPane {
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+}
+
+HBox {
+    -fx-spacing: 10;
+    -fx-alignment: center;
+}
+

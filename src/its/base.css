@@ -1,0 +1,136 @@
+.transparent-textfield {
+    -fx-background-color: transparent;
+    -fx-text-fill: #333333;
+}
+
+.target-pane {
+    -fx-background-color: linear-gradient(to bottom, #e6e6e6, #ffffff);
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0.5, 0, 0);
+}
+
+.text-area {
+    
+    -fx-font-weight: bold;
+    
+}
+
+.button {}
+
+.icon-button {
+    -fx-background-size: 4em 4em;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-radius: 50%;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0.5, 0, 0);
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+
+.login-pane {
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0, 0, 1);
+}
+
+.login-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px;
+    -fx-font-weight: bold;
+}
+
+.save-button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px;
+    -fx-font-weight: bold;
+}
+
+.return-button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px;
+    -fx-font-weight: bold;
+}
+
+.user-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+}
+
+#mainScreen {
+    
+    -fx-background-color: #606060;
+    
+}
+
+#targetPane {
+    
+    -fx-background-color: #edce32;
+    
+}
+
+.icon-button:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+.circle-extra {
+     -fx-fill: #9c9898;
+     -fx-stroke: null;
+}
+
+.circle-main {
+    -fx-fill: #9c9898;
+}
+
+#clearButton {          
+    -fx-background-image: url("media/img/clear.png");
+}
+
+#zoomButton {          
+    -fx-background-image: url("media/img/zoom.png");
+}
+
+#printButton {          
+    -fx-background-image: url("media/img/print.png");
+}
+
+#resetButton {          
+    -fx-background-image: url("media/img/reset.png");
+}
+
+#shotText {
+    -fx-font-weight: bold;
+}
+
+.styled-combobox {
+    -fx-font-size: 16px;
+    -fx-padding: 10px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.5, 0, 0);
+}
+
+
+.transparent-textfield {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-font-size: 20px;
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+}
