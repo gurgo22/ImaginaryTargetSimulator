@@ -15,7 +15,6 @@ public class User {
         this.username = username;
         this.password = password;
         this.highScore = highScore;
-        
     }
 
     public int getId() {
@@ -53,11 +52,11 @@ public class User {
     public int innerTen() {
 
         return 0;
-
     }
 
     @Override
     public boolean equals(Object other) {
+        
         if (this == other) {
             return true;
         }
@@ -77,5 +76,4 @@ public class User {
     }
 
     public static void main(String[] args) { }
-
 }

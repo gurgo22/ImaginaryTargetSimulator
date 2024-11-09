@@ -8,6 +8,7 @@ public class Ring {
     private final int value;
 
     public Ring (Circle circle, int value) {
+        
         this.circle = circle;
         this.value = value;
     }

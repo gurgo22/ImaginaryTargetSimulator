@@ -1,6 +1,8 @@
 package its;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -38,20 +40,50 @@ public class LoginController {
     @FXML
     private void Login() {
     
-        String username = usernameField.getText();
-        String password = passwordField.getText();
-
-        User currentUser = DatabaseHelper.LoginUser(username, password);
-
-        if (currentUser != null) {
-
-            loginMessage.setText("Login successful!" + currentUser.getUsername());
-            this.save.setCurrentUser(currentUser);
+        try {
             
-            LoadMainScreen();
+            String username = usernameField.getText();
+            String password = passwordField.getText();
             
-        } else {
-            loginMessage.setText("Invalid username or password.");
+            User currentUser = DatabaseHelper.LoginUser(username, AESEncrypter.Encrypt(password));
+            
+            if (currentUser != null) {
+                
+                loginMessage.setText("Login successful!" + currentUser.getUsername());
+                this.save.setCurrentUser(currentUser);
+                
+                LoadMainScreen();
+                
+            } else {
+                loginMessage.setText("Invalid username or password.");
+            }
+        } catch (Exception exc) {
+            System.out.println("Exception while encrypting: " + exc);
+        }
+    }
+    
+    @FXML
+    private void Register() {
+        
+        try {
+            
+            String username = usernameField.getText();
+            String password = passwordField.getText();
+            
+            String encryptedPassword = AESEncrypter.Encrypt(password);
+            
+            if (DatabaseHelper.FindUser(username, encryptedPassword) != null) {
+                
+                System.out.println("This user is already registered!");
+                loginMessage.setText("This user is already registered!");
+                
+            }else {
+                
+                DatabaseHelper.RegisterUser(username, encryptedPassword, "");
+                LoadMainScreen();
+            }
+        } catch (Exception exc) {
+            System.out.println("Exception while encrypting: " + exc);
         }
     }
     
@@ -84,24 +116,9 @@ public class LoginController {
     }
     
     @FXML
-    private void Register() {
-        
-        String username = usernameField.getText();
-        String password = passwordField.getText();
-
-        if (DatabaseHelper.FindUser(username, password) != null) {
-            loginMessage.setText("This user is already registered!.");
-        }else {
-            DatabaseHelper.RegisterUser(username, password, "");
-            LoadMainScreen();
-        }
-    }
-    
-    @FXML
     private void ReturnToMainScreen() {
         LoadMainScreen();
     }
     
     public static void main(String[] args) { }
-    
 }

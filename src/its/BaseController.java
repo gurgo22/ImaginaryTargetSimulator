@@ -82,7 +82,7 @@ public abstract class BaseController {
         }
     }
     
-    //SETS COMPONENTS COLOR
+    //SET COMPONENTS COLOR
     public void SetTheme () {
 
         targetPane.setStyle("-fx-background-color: " + theme + ";");
@@ -150,13 +150,14 @@ public abstract class BaseController {
         this.save = save;
     }
     
-    //WHEN A RING IS CLICKED
+    //PLACE SHOT WHEN RING IS CLICKED
     @FXML
     public void RingClicked(MouseEvent event) {
 
         Circle clickedCircle = (Circle) event.getSource();
 
         for (int i = 0; i < target.getRings().size(); i++) {
+            
             if (target.getRings().get(i).getCircle().equals(clickedCircle)) {
 
                 int trueValue = target.getRings().get(i).getValue();
@@ -181,14 +182,13 @@ public abstract class BaseController {
 
                 exists = true;
                 clickedCircle = target.getShots().get(i).getCircle();
-
             }
             i++;
         }
         return clickedCircle;
     }
     
-    //RETURN VALUE OF PARENT SHOT
+    //DETERMNES THE VALUE OF A SHOT PLACED ON ANOTHER SHOT, BASED ON THE PARENT'S VALUE
     public int GetShotTrueValue (Circle clickedCircle) {
 
         int trueValue = 0;
@@ -202,7 +202,6 @@ public abstract class BaseController {
 
                 e = true;
                 trueValue = target.getShots().get(i).getRingValue();
-
             }
             i++;
         }
@@ -222,17 +221,20 @@ public abstract class BaseController {
             clickedCircle = (Circle) eventSource;
 
         } else {    //WHEN THE SHOT VALUE TEXT IS CLICKED
+            
             clickedCircle = FindClickedCircleText(event);
         }
 
         int trueValue = GetShotTrueValue(clickedCircle);
 
         if (trueValue != 0) {
+            
             AddCircleAtCursor(event, diameter, trueValue);
             System.out.println(trueValue);
         }
     }
-
+    
+    //PLACE A VALUE TEXT ON THE SHOT CIRCLE 
     public void SetShotText (Text shotText, double x, double y) {
         
         shotText.setFill(javafx.scene.paint.Color.WHITE);
@@ -243,11 +245,15 @@ public abstract class BaseController {
         shotText.setY(y + textHeight / 4);
     }
     
+    //ADDS THE LAST SHOT VALUE TO THE CURRENT SERIE
     public void UpdateSeriesAfterShot (int shotValue) {
         
         if (shotsCurrentTarget.size() % 10 == 0) {
+            
             UpdateSeries();
+        
         }else if (shotsCurrentTarget.isEmpty()) {
+            
             currentSeriesText.setText(shotValue + "");
         } 
     }
@@ -289,23 +295,22 @@ public abstract class BaseController {
         seriesComboBox.getItems().add(SumSeries(target.getShots().subList(target.getShots().size() - 10, target.getShots().size() - 0)) + "");
         shotsCurrentTarget.clear();
     }
-
+    
+    //SUMS UP THE VALUE OF EACH SHOT IN A SERIE
     public int SumSeries(List<Shot> series) {
 
-        int sum = 0;
-
-        for (int i = 0; i < series.size(); i++) {
-            sum += series.get(i).getRingValue();
-        }
-        return sum;
+        return series.stream().mapToInt(Shot::getRingValue)
+               .sum();
     }
-
+    
+    //SETS THE CURRENT SERIE TEXT
     public void SetCurrentSeries() {
         
         currentSeriesText.setText(SumSeries(shotsCurrentTarget) + "");
         totalScore.setText(SumSeries(target.getShots()) + "");
     }
 
+    //REMOVES ALL SHOTS FROM THE TARGET
     public void ClearTarget() {
 
         currentSeriesText.setText("0");
@@ -362,7 +367,8 @@ public abstract class BaseController {
         stage.setScene(scene);
         stage.show();
     }
-    //SAVE TARGET AS PNG
+    
+    //SAVE TARGET AS PNG FILE
     public void PrintTarget() {
 
         FileChooser fileChooser = new FileChooser();
@@ -424,6 +430,7 @@ public abstract class BaseController {
     
     //NEED A METHOD HERE AS WELL BEACUSE OF THE USER ID
     public void SaveSession(String seriesText) {
+        
         DatabaseHelper.SaveSession(seriesText, currentUser.getId());
     }
     
@@ -442,7 +449,8 @@ public abstract class BaseController {
         stage.setScene(scene);
         stage.show();
     }
-        
+    
+    //SAVES USER HIGH SCORE IN THE DATABASE
     public void SaveHighScore () {
         
         if (currentUser != null && BestSerie() > currentUser.getHighScore()) {
@@ -458,6 +466,7 @@ public abstract class BaseController {
         for (String serie: seriesComboBox.getItems()) {
             
             if (Integer.parseInt(serie) > best) {
+                
                 best = Integer.parseInt(serie);
             }
         }
@@ -496,5 +505,4 @@ public abstract class BaseController {
     }
 
     public static void main(String[] args) { }
-
 }

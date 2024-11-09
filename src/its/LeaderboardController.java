@@ -37,6 +37,7 @@ public class LeaderboardController implements Initializable {
         this.save = save;
     }
 
+    //SET THE LEADERBOARD CONTENT
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
@@ -45,7 +46,8 @@ public class LeaderboardController implements Initializable {
 
         leaderboardTable.setItems(GetUserData());
     }
-
+    
+    //RETURNS ALL USERS THAT HAVE AN EXISTING HIGH SCORE
     private ObservableList<User> GetUserData() {
         
         List<User> users = DatabaseHelper.GetAllUsers();
@@ -55,6 +57,7 @@ public class LeaderboardController implements Initializable {
         return FXCollections.observableArrayList(users);
     }
     
+    //EXIT THE LEADERBOARD WINDOW AND RETURN TO THE TARGET
     public void exit () {
         
          try {

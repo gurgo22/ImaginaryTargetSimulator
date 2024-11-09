@@ -12,7 +12,6 @@ public class Target {
 
         this.shots = new ArrayList<>();
         this.rings = new ArrayList<>();
-
     }
 
     public void setShots(ArrayList<Shot> shots) {
@@ -32,5 +31,4 @@ public class Target {
     }
 
     public static void main (String[] args) {   }
-    
 }

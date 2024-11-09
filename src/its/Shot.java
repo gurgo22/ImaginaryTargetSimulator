@@ -8,9 +8,9 @@ public class Shot {
     private final Circle circle;
     private final Text valueText;
     private final int value;
-    //save layout maybe  -  to show previous series
     
     public Shot(Circle circle, Text valueText, int ringValue) {
+        
         this.circle = circle;
         this.valueText = valueText;
         this.value = ringValue;

@@ -92,5 +92,4 @@ public class TestController extends BaseController implements Initializable {
     }
     
     public static void main(String[] args) { }
-
 }

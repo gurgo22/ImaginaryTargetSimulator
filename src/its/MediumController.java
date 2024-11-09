@@ -63,13 +63,16 @@ public class MediumController extends BaseController implements Initializable {
         for (int i = 0; i < extraCircles.length; i++) {
 
             if (i == extraCircles.length - 1) {
+                
                 extraRings[i] = new Ring(extraCircles[i], 10);
                 mainRings[i] = new Ring(mainCircles[i], 10);
                 AddRing(extraRings[i]);
                 AddRing(mainRings[i]);
                 extraCircles[i].setOnMouseClicked(this::RingClicked);
                 mainCircles[i].setOnMouseClicked(this::RingClicked);
+            
             } else {
+            
                 extraRings[i] = new Ring(extraCircles[i], i + 1 + 6);
                 mainRings[i] = new Ring(mainCircles[i], i + 1 + 6);
             }
@@ -82,6 +85,7 @@ public class MediumController extends BaseController implements Initializable {
     }
     
     private void AddRing(Ring ring) {
+        
         GetRings().add(ring);
     }
 
@@ -91,10 +95,8 @@ public class MediumController extends BaseController implements Initializable {
         super.SetTheme();
         
         super.OuterCircleTheme(this.extraCircles[0]);
-        
     }
     
     public static void main(String[] args) {
     }
-
 }

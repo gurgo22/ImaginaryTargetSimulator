@@ -96,5 +96,4 @@ public class SavedTargetData {
     }
     
     public static void main (String[] args) { }
-    
 }

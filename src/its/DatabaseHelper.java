@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DatabaseHelper {
 
@@ -24,9 +26,9 @@ public class DatabaseHelper {
             conn = DriverManager.getConnection(URL);
         
         } catch (SQLException e) {
+            
             System.out.println(e.getMessage());
-        
-    }
+        }
         return conn;
     }
 
@@ -48,6 +50,7 @@ public class DatabaseHelper {
                 + ");";
 
         try (Connection conn = Connect(); PreparedStatement pstmt1 = conn.prepareStatement(createUserTable); PreparedStatement pstmt2 = conn.prepareStatement(createSessionTable)) {
+            
             pstmt1.execute();
             pstmt2.execute();
 
@@ -56,14 +59,22 @@ public class DatabaseHelper {
         }
     }
 
-    public static void RegisterUser(String username, String password, String highScore) {
+    public static void RegisterUser(String username, String encryptedPassword, String highScore) {
        
         String sql = "INSERT INTO users(username, password, high_score) VALUES(?,?,?)";
 
         try (Connection conn = Connect(); PreparedStatement statement = conn.prepareStatement(sql)) {
 
             statement.setString(1, username);
-            statement.setString(2, password);
+            
+            try {
+                
+                statement.setString(2, AESEncrypter.Decrypt(encryptedPassword));
+                
+            } catch (Exception exc) {
+                System.out.println("Decryption error: " + exc);
+            }
+            
             statement.setString(3, highScore);
 
             statement.executeUpdate();
@@ -73,7 +84,7 @@ public class DatabaseHelper {
         }
     }
 
-    public static User LoginUser(String username, String password) {
+    public static User LoginUser(String username, String encryptedPassword) {
         
         String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
         
@@ -82,14 +93,20 @@ public class DatabaseHelper {
         try (Connection conn = Connect(); PreparedStatement statement = conn.prepareStatement(sql) ) {
             
             statement.setString(1, username);
-            statement.setString(2, password);
+            
+            try {
+                
+                statement.setString(2, AESEncrypter.Decrypt(encryptedPassword));
+            
+            } catch (Exception exc) {
+                System.out.println("Decryption error:" + exc);
+            }
             
             ResultSet rs = statement.executeQuery();
 
             if (rs.next()) {
                 
                 user = new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("high_score"));
-            
             }
             
         } catch (SQLException e) {
@@ -106,11 +123,12 @@ public class DatabaseHelper {
         try (Connection conn = Connect(); PreparedStatement statement = conn.prepareStatement(sql)) {
             
             statement.setString(1, username);
-            statement.setString(2, password);
+            statement.setString(2, AESEncrypter.Decrypt(password));
             
             ResultSet rs = statement.executeQuery();
 
             if (rs.next()) {
+                
                 return new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("high_score"));
             }
             
