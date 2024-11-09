@@ -43,7 +43,7 @@ public class LoginController {
         try {
             
             String username = usernameField.getText();
-            String password = passwordField.getText();
+            String password = passwordField.getText();   
             
             User currentUser = DatabaseHelper.LoginUser(username, AESEncrypter.Encrypt(password));
             
