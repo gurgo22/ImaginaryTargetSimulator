@@ -1,6 +1,6 @@
 Imaginary Target Simulator Application
 
-The Target Simulator is a training tool designed for sport shooting enthusiasts, allowing users to simulate and analyze shooting practice sessions. This desktop application, developed with JavaFX and SQLite, features realistic target placement, score tracking, and a leaderboard to encourage skill development. This project demonstrates database integration, file handling, and GUI design principles suitable for portfolio presentation.
+The Target Simulator is a training tool designed for sport shooting enthusiasts, allowing users to simulate and analyze shooting practice sessions. This desktop application, developed with JavaFX and SQLite, features realistic target placement, score tracking, and a leaderboard to encourage skill development. This project demonstrates database integration, file handling, and GUI design principles.
 
 Features
 
